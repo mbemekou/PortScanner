@@ -47,6 +47,7 @@ def scanner(host,port):
 		#print"socket creation"
 		s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 		s.settimeout(1)
+		host=socket.gethostbyname(host)
 		c=s.connect_ex((host,port))
 		#print"c="
 		#print c
@@ -104,13 +105,11 @@ def thread_handler(target_hosts,target_ports):
 			#b=0
 			for i in range(len(threads)):
 				q.put(None)
-				#b=b+1
-				#print "put None on queue{}".format(b)
+				
 			#a=0
 			for t in threads:
 				t.join()
-				#a=a+1
-				#print("thread {} released".format(a))
+				
 			sys.stdout.write("                                                                 \n")
 			if(not len(opens)):
 				print("\n")
@@ -160,7 +159,7 @@ def start(argv):
 		for i in range(ip_start,ip_end+1):
 			target_hosts.append(subnet+"."+str(i))
 	elif("," in targets):
-		target_hosts=targets.split(",").strip(' ')
+		target_hosts=targets.split(",")
 		
 	else:
 		target_hosts.append(targets)
