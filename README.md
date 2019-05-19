@@ -16,8 +16,13 @@ cd ./PortScanner
 chmod +x PortScanner.py
 
 /PortScanner.py -t <target_hosts> -p <target_ports>
+
  examples:
+ 
         ./PortScanner.py -t 192.168.1.1 -p 20-2000
+        
         ./PortScanner.py -t 192.168.1.1-10 -p 80,443
+        
         ./PortScanner.py -t 192.168.1.1,192.168.1.110 -p 80
+        
 
