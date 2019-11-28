@@ -4,7 +4,7 @@ import threading
 import sys
 from termcolor import colored
 import getopt
-from queue import Queue
+from Queue import Queue
 import os
 import time
 opens=[]
